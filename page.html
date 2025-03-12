@@ -19,11 +19,15 @@
             </TABLE>
         </TABLE>
         <h3><font color="#0000FF">填寫表單</font><br></h3>
-        <form action="" method="">
-            <h2>姓名: <input type="text"><br></h2> 
-            <h2>學號: <input type="text"><br></h2> 
-            <h2>電話: <input type="text"><br></h2> 
-            <h2>信箱: <input type="text"><br></h2>
+        <form action="info.php" method="post">
+            <h2>姓名: <input type="text" name="uName" required><br></h2> 
+            <h2>學號: <input type="text" name="uID" required></h2> 
+            <h2>電話: <input type="text" name="uPhone" required></h2> 
+            <h2>信箱: <input type="text" name="uEmail" required></h2>
+            <h2>性別: Male<input type="radio" name="uGender" value="male">
+            Female<input type="radio" name="uGender" value="female"><br></h2>
+            <h2>是否參加: 是<input type="radio" name="uJoin" value="yes">
+            否<input type="radio" name="uJoin" value="no"><br></h2>
 
             <input type="submit"><input type="reset">
         </form>
