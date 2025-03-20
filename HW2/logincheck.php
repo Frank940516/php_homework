@@ -1,23 +1,29 @@
 <?php
-session_start();
-?>
-<h1>Login Result</h1>
+session_start(); 
 
-<?php
+$defaultAdminName = "admin";
+$defaultAdminPwd = "1234";
+$defaultUserName = "user";
+$defaultUserPwd = "1111";
 
-$defaultName="nuk";
-$defalutPwd="123456";
-$userName=$_POST["userName"];
-$userPwd=$_POST["userPwd"];
+$userName = $_POST["userName"];
+$userPwd = $_POST["userPwd"];
 
-if($defaultName==$userName && $defalutPwd==$userPwd){
+
+if ($defaultAdminName == $userName && $defaultAdminPwd == $userPwd) {
+    echo "Login success, Hi Noble Admin";
+    $_SESSION["check"] = "Admin"; 
+    $cookiedate = strtotime("+10 seconds", time()); 
+    setcookie("userName", $defaultAdminName, $cookiedate);
+    header("Location: form.php"); 
+} else if ($defaultUserName == $userName && $defaultUserPwd == $userPwd) {
     echo "Login success";
-    $_SESSION["check"]=1;
-    $cookiedate=strtotime("+10 seconds",time());
-    setcookie("userName",$defaultName,$cookiedate);
-    header("Location:form.php");
-}else{
-    echo "Login failed, will send you back to login again";
-    header("Refresh:3;url='login.php'");
+    $_SESSION["check"] = "User"; 
+    $cookiedate = strtotime("+10 seconds", time()); 
+    setcookie("userName", $defaultUserName, $cookiedate);
+    header("Location: form.php"); 
+} else {
+    echo "Login failed, login again";
+    header("Refresh:2;url='login.php'"); 
 }
 ?>
