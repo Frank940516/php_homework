@@ -11,7 +11,7 @@ $userPwd = $_POST["userPwd"];
 
 
 if ($defaultAdminName == $userName && $defaultAdminPwd == $userPwd) {
-    echo "Login success, Hi Noble Admin";
+    echo "Login success, Hi Admin";
     $_SESSION["check"] = "Admin"; 
     $cookiedate = strtotime("+10 seconds", time()); 
     setcookie("userName", $defaultAdminName, $cookiedate);
@@ -23,7 +23,7 @@ if ($defaultAdminName == $userName && $defaultAdminPwd == $userPwd) {
     setcookie("userName", $defaultUserName, $cookiedate);
     header("Location: form.php"); 
 } else {
-    echo "Login failed, login again";
+    echo "Login failed,please login again";
     header("Refresh:2;url='login.php'"); 
 }
 ?>
